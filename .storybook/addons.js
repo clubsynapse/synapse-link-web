@@ -1,3 +1,2 @@
-import '@storybook/addon-actions/register';
-import '@storybook/addon-links/register';
-import 'semantic-ui-css/semantic.min.css';
+import "@storybook/addon-actions/register";
+import "@storybook/addon-links/register";
