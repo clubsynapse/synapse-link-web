@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import { Flag } from "semantic-ui-react";
+
+import Caroussel from './components/Carousel'
+
+import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import './App.css';
+
+let data = [
+  {src:'/img/a.jpg',titre:'Aziz',alt:'',linkTo:''},
+  {src:'/img/b.jpg',titre:'Bryson Tiller',alt:'',linkTo:''},
+  {src:'/img/c.png',titre:'DUT2',alt:'',linkTo:''},
+]
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Flag name="sn" />
-      </div>
+     <div>
+        <Caroussel data = {data}/>
+      
+     </div>
     );
   }
 }
