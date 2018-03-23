@@ -5,6 +5,7 @@ import { action } from "@storybook/addon-actions";
 import { linkTo } from "@storybook/addon-links";
 
 import { Button, Welcome } from "@storybook/react/demo";
+import Post from "../components/Post";
 import { Flag } from "semantic-ui-react";
 import Navbar from "../components/Navbar";
 
@@ -20,6 +21,10 @@ storiesOf("Button", module)
     <Button onClick={action("clicked")}>😀 😎 👍 💯</Button>
   ));
 
+storiesOf("Posts", module)
+  .add("default post (just text)", () => <Post />)
+  .add("image post", () => <Post type="image" />)
+  .add("video post", () => <Post type="video" />);
 storiesOf("Semantic Ui React", module).add("Flag Senegal", () => (
   <Flag name="sn" />
 ));
