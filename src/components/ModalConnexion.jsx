@@ -105,7 +105,7 @@ export default class ModalConnexion extends Component {
                         {
                             /* Ajouter lien pour mot de passe oublier */
                         }
-                        <a href={/* link */} >Mot de passe oublier?</a>
+                        <a href={''} >Mot de passe oublier?</a>
                      </Form>
                 </Modal.Content>
             </Modal>
