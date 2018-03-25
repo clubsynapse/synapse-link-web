@@ -7,6 +7,7 @@ import { linkTo } from "@storybook/addon-links";
 import { Button, Welcome } from "@storybook/react/demo";
 import Post from "../components/Post";
 import Carousel from "../components/Carousel";
+import ModalConnexion from "../components/ModalConnexion";
 import { Flag } from "semantic-ui-react";
 import Navbar from "../components/Navbar";
 
@@ -43,4 +44,8 @@ storiesOf("Navbar", module).add("connected user", () => (
 
 storiesOf("Carousel", module).add("carousel with 3 slides", () => (
   <Carousel data={data} />
+));
+
+storiesOf("ModalConnexion", module).add("Modal Connexion", () => (
+  <ModalConnexion />
 ));
