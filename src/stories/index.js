@@ -7,8 +7,8 @@ import { linkTo } from '@storybook/addon-links';
 import { Button, Welcome } from '@storybook/react/demo';
 import { Flag } from "semantic-ui-react"
 
-import ModalInscription from '../components/ModalInscription'
-import ModalConnexion from '../components/ModalConnexion'
+import Inscription from '../components/ModalInscription'
+import Connexion from '../components/ModalConnexion'
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
@@ -18,5 +18,5 @@ storiesOf('Button', module)
 
 storiesOf('Semantic Ui React', module).add('Flag Senegal', () => <Flag name="sn" />);
 
-storiesOf('Inscription', module).add('Inscription', () => <ModalInscription />);
-storiesOf('Connection', module).add('Connection', () => <ModalConnexion />);
+storiesOf('Inscription', module).add('Inscription', () => <Inscription />);
+storiesOf('Connection', module).add('Connection', () => <Connexion />);
