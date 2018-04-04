@@ -8,6 +8,7 @@ import { Button, Welcome } from "@storybook/react/demo";
 import Post from "../components/Post";
 import Carousel from "../components/Carousel";
 import ModalConnexion from "../components/ModalConnexion";
+import RichTextEditor from "../components/RichTextEditor";
 import { Flag } from "semantic-ui-react";
 import Navbar from "../components/Navbar";
 
@@ -49,3 +50,5 @@ storiesOf("Carousel", module).add("carousel with 3 slides", () => (
 storiesOf("ModalConnexion", module).add("Modal Connexion", () => (
   <ModalConnexion />
 ));
+
+storiesOf("Rich Text Editor", module).add("Basic", () => <RichTextEditor />);

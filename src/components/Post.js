@@ -3,6 +3,7 @@ import { Card, Icon, Image, Grid, Embed } from "semantic-ui-react";
 import PropTypes from "prop-types";
 
 export default class Post extends Component {
+  /*
   renderContentByType() {
     if (this.props.type === "image") {
       return <Image src="http://placehold.it/300x300" />;
@@ -18,10 +19,11 @@ export default class Post extends Component {
       return null;
     }
   }
+  */
 
   render() {
     return (
-      <Card>
+      <Card fluid>
         <Card.Content>
           <Card.Header>
             <Image
@@ -36,10 +38,21 @@ export default class Post extends Component {
             <span className="date">30 minutes ago</span>
           </Card.Meta>
           <Card.Description>
-            Matthew is a musician living in Nashville.
+            <div>
+              <iframe
+                class="ql-video"
+                frameborder="0"
+                allowfullscreen="true"
+                src="https://www.youtube.com/embed/3M_5oYU-IsU?showinfo=0"
+              />
+              <p>Regardez man's not hot</p>
+              <p>Regardez man's not hot</p>
+              <p>Regardez man's not hot</p>
+              <p>Regardez man's not hot</p>
+              <p>Regardez man's not hot</p>
+            </div>
           </Card.Description>
         </Card.Content>
-        {this.renderContentByType()}
         <Card.Content extra>
           <Grid>
             <Grid.Column width={8}>
