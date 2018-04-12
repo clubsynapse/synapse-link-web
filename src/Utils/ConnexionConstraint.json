@@ -1,0 +1,16 @@
+{
+  "mail": {
+    "presence": true,
+    "email": true
+  },
+  "password": {
+    "presence": true,
+    "length": {
+      "minimum": 6
+    }
+  },
+  "phone": {
+    "presence": true,
+    "format": "^(70|77|76|78)[0-9]{7}$"
+  }
+}
