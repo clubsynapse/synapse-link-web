@@ -31,7 +31,7 @@ export default class Inscription extends Component {
       login: "",
       isSubmit: false,
       error: [],
-      text: ["Envoyer", "E-mail/Téléphone"],
+      text: ["Envoyer", "Valider", "E-mail/Téléphone", "Code de vérification"],
       open: false
     };
   }
@@ -41,10 +41,9 @@ export default class Inscription extends Component {
   };
 
   handleSubmit = e => {
-    this.setState({ error: [] });
-    console.log("called");
     e.preventDefault();
-    this.setState({ isSubmit: true });
+
+    this.setState({ error: [], isSubmit: true });
     const { login } = this.state;
     console.log(login);
     const isEmail = login.includes("@");
@@ -53,22 +52,24 @@ export default class Inscription extends Component {
     let cons = _.omit(constraint, isEmail ? "phone" : "mail", "password");
     const errors = validate(credentials, cons, { format: "flat" });
 
-    console.log(errors);
-
     if (errors) {
-      this.setState({ error: errors });
-      this.setState({ isSubmit: false });
-      return errors;
+      this.setState({ error: errors, isSubmit: false });
+      return;
     }
-
-    this.setState({ isSubmit: false });
     this.setState({ open: true });
-    //this.props.Subscription function
+    console.log(this.state);
   };
 
   Close = () => this.setState({ open: false });
+  changelabel = elmnt => {
+    if (this.state.isSubmit && this.state.error.length == 0) {
+      return elmnt === "label" ? this.state.text[3] : this.state.text[1];
+    }
+    return elmnt == "label" ? this.state.text[2] : this.state.text[0];
+  };
+
   render() {
-    /*  const { open } = this.state; */
+    console.log("called");
     return (
       <div>
         <Form
@@ -81,29 +82,23 @@ export default class Inscription extends Component {
             list={this.state.error}
           />
           <Form.Field>
-            <label htmlFor=""> {this.state.text[1]} </label>
+            <label htmlFor="">{this.changelabel("label")}</label>
             <Input
               type="mail"
               onChange={this.handleLoginChange.bind(this)}
               required
             />
           </Form.Field>
-          <Button
-            loading={this.state.isSubmit}
-            onClick={this.handleSubmit.bind(this)}
-            fluid
-            color="blue"
-          >
-            {this.state.text[0]}
+          <Button onClick={this.handleSubmit.bind(this)} fluid color="blue">
+            {this.changelabel("button")}
           </Button>
         </Form>
         <TransitionablePortal
-          trigger={<Button primary content="Bonjour" />}
           open={this.state.open}
           onClose={this.Close.bind(this)}
         >
           <Segment
-            style={{ left: "40%", position: "fixed", top: "50%", zIndex: 1000 }}
+            style={{ left: "40%", position: "fixed", top: "30%", zIndex: 1000 }}
           >
             <Header>Demande reçu</Header>
             <p>Un code de vérification vous à été envoyer.</p>
